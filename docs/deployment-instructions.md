@@ -66,10 +66,10 @@ You will need following to get started:
 
 2. Set up the repository secrets in your forked repo. On your fork of the github repository, go to the `Settings` tab > `Secrets and variables` > `Actions` > `Secrets` tab and create these necessary repository secrets:
 
-    | Secret Name        | Secret Value                                      |
-    | ------------------ | ------------------------------------------------- |
-    | `SQLPASSWORD`      | A password which will be set on all SQL Azure DBs |
-    | `SERVICEPRINCIPAL` | See details below                                 |
+    | Secret Name        | Secret Value                                                                       |
+    | ------------------ | ---------------------------------------------------------------------------------- |
+    | `SQLPASSWORD`      | 8 to 15 characters long, must contain uppercase, lowercase, and numeric characters |
+    | `SERVICEPRINCIPAL` | See details below                                                                  |
 
     The value of the `SERVICEPRINCIPAL` secret above needs to have the below format.
 
@@ -86,9 +86,9 @@ You will need following to get started:
 
 3. Set up the repository variables in your forked repo. On your fork of the github repository, go to the `Settings` tab > `Secrets and variables` > `Actions` > `Variables` tab and create these necessary repository variables:
 
-    | Secret Name | Secret Value                                                                                                                            |
-    | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-    | `SUFFIX`    | A unique environment suffix (max 6 characters, alphanumeric, lower case only, no whitespace, no special chars). E.g. 'test51' or '1stg' |
+    | Variable Name | Variable Value                                                                                                                          |
+    | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+    | `SUFFIX`      | A unique environment suffix (max 6 characters, alphanumeric, lower case only, no whitespace, no special chars). E.g. 'test51' or '1stg' |
 
 ## Deploy the Application
 
