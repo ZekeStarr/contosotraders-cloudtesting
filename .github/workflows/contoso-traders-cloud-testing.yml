@@ -3,9 +3,9 @@ name: contoso-traders-cloud-testing
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
+    branches: ["LabInstance31231716"]
   pull_request:
-    branches: ["main"]
+    branches: ["LabInstance31231716"]
     paths-ignore: ["docs/**", "demo-scripts/**"]
 
 env:
@@ -47,6 +47,7 @@ env:
 jobs:
   provision:
     runs-on: ubuntu-22.04
+    environment: LabInstance31231716
     env:
       AADUSERNAME: ${{ secrets.AADUSERNAME }}
       AADPASSWORD: ${{ secrets.AADPASSWORD }}
@@ -57,7 +58,7 @@ jobs:
       productsApiEndpoint: ${{ steps.get-productsApiEndpoint.outputs.productsApiEndpoint }}
       uiCdnEndpoint: ${{ steps.get-uiCdnEndpoint.outputs.uiCdnEndpoint }}
     concurrency:
-      group: provision
+      group: provision31231716
       cancel-in-progress: true
     steps:
       - name: checkout code
@@ -444,8 +445,9 @@ jobs:
   load-tests-with-chaos-products-api:
     needs: [provision, playwright-tests-ui]
     runs-on: ubuntu-22.04
+    environment: LabInstance31231716
     concurrency:
-      group: load-tests-with-chaos-products-api
+      group: load-tests-with-chaos-products-api31231716
       cancel-in-progress: true
     steps:
       - name: checkout code
@@ -504,8 +506,9 @@ jobs:
   load-tests-carts-internal-api:
     needs: [provision, playwright-tests-ui]
     runs-on: ubuntu-22.04
+    environment: LabInstance31231716
     concurrency:
-      group: load-tests-carts-internal-api
+      group: load-tests-carts-internal-api31231716
       cancel-in-progress: true
     steps:
       - name: checkout code
@@ -570,8 +573,9 @@ jobs:
   load-tests-carts-api:
     needs: [provision, playwright-tests-ui]
     runs-on: ubuntu-22.04
+    environment: LabInstance31231716
     concurrency:
-      group: load-tests-carts-api
+      group: load-tests-carts-api31231716
       cancel-in-progress: true
     steps:
       - name: checkout code
@@ -619,6 +623,7 @@ jobs:
     needs: [provision]
     timeout-minutes: 20
     runs-on: ubuntu-22.04
+    environment: LabInstance31231716
     container:
       image: mcr.microsoft.com/playwright:v1.32.0-jammy
     defaults:
